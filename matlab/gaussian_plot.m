@@ -15,8 +15,15 @@ ex_3 = -(x - mu).^2 / (2 * sig_3^2);
 graph_3 = exp(ex_3) / (sig_3 * sqrt(2 * pi));
 
 
-plot(x, graph_1,"-", x, graph_2,"-.", x, graph_3,".-");
-axis(010 
+plot(x, graph_1,"--", x, graph_2,"-.", x, graph_3,":k");
+hold on
+axis([0 10 0 1]);
+title("Normal Gaussian Functions");
+xlabel("x");
+ylabel("ϕ(x−5,σ)");
+legend("ϕ = 0.5", "ϕ = 1.0", "ϕ = 1.5");
+hold off
+
 
 
 
