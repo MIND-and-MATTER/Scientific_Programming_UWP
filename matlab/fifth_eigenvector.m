@@ -9,10 +9,13 @@ for j = 1:4
     m(j+1, j)= -1
 end
 
-H = ((5+1)^2 / 2) .* m
+H = ((5+1)^2 / 2) .* m;
 
 y_values = eig(H);
 x_values = linspace(1/(5+1), 5/(5+1), 5);
-y2 = sqrt(sin(pi * x_values))
+y2 = sqrt(2) * (sin(pi * x_values));
 
 plot(x_values, y_values, "-", x_values, y2, "-." )
+hold on
+axis([0 1])
+hold off
