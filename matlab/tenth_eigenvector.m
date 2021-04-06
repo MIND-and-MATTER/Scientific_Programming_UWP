@@ -12,6 +12,9 @@ n_points = 10;
 x_values = linspace(1/(n_points+1), n_points/(n_points+1), n_points);
 y2 = sqrt(2) * (sin(pi * x_values));
 
-plot(x_values, eigenvectors(:,1), "-", x_values, y2, "-." )
+x = linspace(0,1);
+y2 = sqrt(2) * (sin(pi * x));
+
+plot(x_values, eigenvectors(:,1), "-", x, y2, "-." )
 
     
