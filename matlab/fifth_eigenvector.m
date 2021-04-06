@@ -10,9 +10,11 @@ H = ((5+1)^2 / 2) * m;
 
 [eigenvectors, eigenvalues] = eig(H);
 x_values = linspace(1/(5+1), 5/(5+1), 5);
-y2 = sqrt(2) * (sin(pi * x_values));
 
-plot(x_values, eigenvectors(:,1), "-", x_values, y2, "-." )
+x = linspace(0,1);
+y2 = sqrt(2) * (sin(pi * x));
+
+plot(x_values, eigenvectors(:,1), "-", x, y2, "-." )
 
 
 
