@@ -5,7 +5,7 @@ for i = 1:9
     m(i+1, i) = -1;
 end
 
-H = ((10+1)^2 / 2) .* m;
+H = ((10+1)^2 / 2) * m;
 
 n_points = 10;
 [eigenvectors, eigenvalues] = eig(H);
