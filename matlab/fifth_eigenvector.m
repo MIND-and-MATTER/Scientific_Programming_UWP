@@ -3,19 +3,20 @@ m = diag(A);
 
 for i = 1:4
     m(i, i+1) = -1
-end
-
-for j = 1:4
-    m(j+1, j)= -1
+    m(i+1, i)= -1
 end
 
 H = ((5+1)^2 / 2) .* m;
 
-y_values = eig(H);
+[eigenvectors, eigenvalues] = eig(H);
 x_values = linspace(1/(5+1), 5/(5+1), 5);
 y2 = sqrt(2) * (sin(pi * x_values));
 
-plot(x_values, y_values, "-", x_values, y2, "-." )
-hold on
-axis([0 1])
-hold off
+plot(x_values, eigenvectors(:,1), "-", x_values, y2, "-." )
+
+
+
+
+
+
+
