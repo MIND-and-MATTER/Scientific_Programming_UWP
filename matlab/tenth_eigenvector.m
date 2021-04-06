@@ -8,7 +8,7 @@ for j = 1:9
     m(j+1, j) = -1;
 end
 
-H = ((5+1)^2 / 2) .* m;
+H = ((10+1)^2 / 2) .* m;
 
 n_points = 10;
 y_values = eig(H);
