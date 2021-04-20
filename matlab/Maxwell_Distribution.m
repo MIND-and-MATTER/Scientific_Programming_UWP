@@ -1,21 +1,26 @@
-
 T = 300;
-m = 5.31e-26;
 Data = readcell("Gas_masses.csv");
 Names = Data(:,1);
 Masses = Data(:,2);
-%.* 6.0221409e2-26;
-%elements = containers.Map(Names, Masses);
-%h = (keys(elements));
-%j = values(elements);
+Velocity  = zeros(length(Names), 3);
+Legen = string(zeros(length(Names), 1));
 
+hold on
 for i = 1:length(Names)
-     Mass = Masses(i);
+   
+     Mass = Masses{i} * 6.0221409e-26;
     [v_max, v_rms, v_ave] = velocities(T, Mass);
+    Velocity(i, :) = [v_max, v_rms, v_ave];
     [x_vals, y_vals] = distribution_curve( T, Mass);
     plot(x_vals, y_vals)
+    Legen(i) = sprintf("%s     v_r_m_s=%0.3e", Names{i}, v_rms);
+   
 end
 
+legend(Legen);
+xlabel("Velocity (m/s)")
+ylabel("Probability")
+hold off
 
 
 %function[] = Maxwell_Distribution(T, m)
@@ -31,7 +36,7 @@ end
 
 function [velo, dist] = distribution_curve( T, m)
     k = 1.38064852e-23;
-    v = (0: 15: 3000);
+    v = (0: 5: 1000);
     A = zeros(2, length(v));
     fact =  (4*pi) * (m / (2*pi*k*T))^(3/2);
     for i = 1: length(v)
