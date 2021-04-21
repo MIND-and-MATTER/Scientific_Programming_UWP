@@ -1,7 +1,4 @@
 from vpython import *
-import MathJax
-
-
 # GlowScript 3.0 VPython
 
 # Written by Ruth Chabay, licensed under Creative Commons 4.0.
@@ -71,7 +68,7 @@ r = arrow(
 )
 r_lbl = label(
     pos=vector(12, 8, 14),
-    text=([\\(\vec{r} = 11\hat{x}+7\hat{y}+13\hat{z}\\)])
+    text="r = 11x + 7y + 13z",
     color=color.black,
     opacity=0,
     height=30,
