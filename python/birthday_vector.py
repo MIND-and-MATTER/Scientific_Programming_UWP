@@ -51,7 +51,7 @@ z_axis = cylinder(
     axis=vector(0, 0, 10),
     radius=0.3
 )
-x_lbl = label(
+z_lbl = label(
     pos=vector(0, 0, 11),
     text="z",
     color=color.blue,
@@ -59,10 +59,10 @@ x_lbl = label(
     height=30,
     box=0
 )
-
+# X, Y, Z components of vector r were chosen as birth month, birth day, and 2000 - birth year.
 r = arrow(
     pos=vector(0, 0, 0),
-    axis = vector(11, 7, 13),
+    axis=vector(11, 7, 13),
     color=color.black,
     shaftwidth=0.5
 )
