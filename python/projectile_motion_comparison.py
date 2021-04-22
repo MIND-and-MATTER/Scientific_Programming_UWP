@@ -56,6 +56,7 @@ initial_velocity_earth = vp.vector(10., 10., 10.)
 grav_earth = -9.8
 ball_earth = vp.sphere(
     pos=initial_position_earth,
+    velocity=initial_velocity_earth,
     radius=1.,
     color=vp.color.blue,
     make_trail=True
@@ -67,7 +68,7 @@ grav_mars = -3.7
 ball_mars = vp.sphere(
     pos=initial_position_mars,
     radius=1.,
-    color=vp.color.yellow,
+    color=vp.vector(1, .7, .7),
     make_trail=True
 )
 
@@ -85,23 +86,30 @@ animation_time_step = 0.01  # seconds
 rate_of_animation = 1/animation_time_step
 time_step = 0.005
 stop_time = 2.
-
+H = []
+V = []
+T = []
 time = 0.
-ball_velocity_earth = initial_velocity_earth
-z_earth = initial_velocity_earth.z
+
 while ball_earth.pos.z > 0:
     vp.rate(rate_of_animation)
-    ball_velocity_earth.z = z_earth + grav_earth*time
+    ball_earth.velocity.z += grav_earth*time_step
     if ball_earth.pos.z <= 0:
-        ball_velocity_earth.x = 0
-        ball_velocity_earth.y = 0
-        ball_velocity_earth.z = 0
+        ball_earth.velocity.x = 0
+        ball_earth.velocity.y = 0
+        ball_earth.velocity.z = 0
 
-    ball_earth.pos.x += ball_velocity_earth.x * time_step
-    ball_earth.pos.y += ball_velocity_earth.y * time_step
-    ball_earth.pos.z += ball_velocity_earth.z * time_step
-
+    ball_earth.pos.x += ball_earth.velocity.x * time_step
+    ball_earth.pos.y += ball_earth.velocity.y * time_step
+    ball_earth.pos.z += ball_earth.velocity.z * time_step
+    V.append(ball_earth.velocity.z)
+    H.append(ball_earth.pos.z)
+    T.append(time)
     time += time_step
+import matplotlib.pyplot
+matplotlib.pyplot.plot(T, H, V)
+matplotlib.pyplot.show()
+
 
 time = 0
 ball_velocity_mars = initial_velocity_mars
