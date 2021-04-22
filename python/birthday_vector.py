@@ -68,7 +68,7 @@ r = arrow(
 )
 r_lbl = label(
     pos=vector(12, 8, 14),
-    text="r = 11x + 7y + 13z",
+    text="r = 11x̂ + 7ŷ + 13ẑ",
     color=color.black,
     opacity=0,
     height=30,
