@@ -39,7 +39,8 @@ end
 % Does the code run without error?
 % If any error occurs, can you suggest a potential fix?
  % This code errors out in line 10 due to the use of an undefined variable
- % I would start by removing the % in front of the s_t declaration
+ % I tried to remove % in front of the s_t declaration. The code then errored on 
+ % line 13 because variable s is undefined.
  
 % How understandable is the output of the code?
 % Point out any parts you do not understand.
