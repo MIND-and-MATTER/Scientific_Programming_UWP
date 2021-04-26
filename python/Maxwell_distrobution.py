@@ -1,7 +1,11 @@
-#### RENAME from mini_project.py to (your_project_short_name).py
-# File structure
-# 1. Commented paragraph describing mini-project ~ 100-200 words
-# 2. Module imports that are used in multiple functions
+""" 
+This program is designed to take a user input of Kelvin temperature. Data relating to molecular gasses will be extracted from a file. 
+Calculations will return probability functions for the velocities of gas particles at the given temperature. Computations to output a 
+graphical representation of these functions will occur and the results will be displayed
+"""
+import matplotlib.pyplot as plt
+import numpy as np
+
 # 3. Function definitions
 # 4. if __name__ == "__main__" block, which calls a primary function with a clear name 
 
