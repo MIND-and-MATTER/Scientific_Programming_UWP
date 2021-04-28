@@ -7,7 +7,7 @@ given temperature. Computations to output a graphical representation of these fu
 
 
 T = 300;
-Data = readcell("Gas_masses.csv");
+Data = readcell("Gas_mass.csv");
 Names = Data(:,1);
 Masses = Data(:,2);
 Velocity  = zeros(length(Names), 3);
