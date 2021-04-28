@@ -15,7 +15,22 @@ Masses = Data(:,2);
 Velocity  = zeros(length(Names), 3);
 Legen = string(zeros(length(Names), 1));
 
+hold on
+for i = 1:length(Names)
+   
+     Mass = Masses{i} * 6.0221409e-26;
+    [v_max, v_rms, v_ave] = velocities(T, Mass);
+    Velocity(i, :) = [v_max, v_rms, v_ave];
+    [x_vals, y_vals] = distribution_curve( T, Mass);
+    plot(x_vals, y_vals)
+    Legen(i) = sprintf("%s     v_r_m_s=%0.3e", Names{i}, v_rms);
+   
+end
 
+legend(Legen);
+xlabel("Velocity (m/s)")
+ylabel("Probability")
+hold off
 
 
 function [velo, dist] = distribution_curve( T, m)
@@ -39,21 +54,3 @@ function [v_max, v_rms, v_ave] = velocities(T, m)
     v_ave = sqrt(8 / pi) * fact;
 end
 
-hold on
-for i = 1:length(Names)
-   
-     Mass = Masses{i} * 6.0221409e-26;
-    [v_max, v_rms, v_ave] = velocities(T, Mass);
-    Velocity(i, :) = [v_max, v_rms, v_ave];
-    [x_vals, y_vals] = distribution_curve( T, Mass);
-    plot(x_vals, y_vals)
-    Legen(i) = sprintf("%s     v_r_m_s=%0.3e", Names{i}, v_rms);
-   
-end
-
-legend(Legen);
-xlabel("Velocity (m/s)")
-ylabel("Probability")
-hold off
-
-end
