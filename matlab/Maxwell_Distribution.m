@@ -40,7 +40,7 @@ hold off
 % The following equation is used to calculate probabilities over 
 % the range of velocitiy. 
 %
-% $$ P(v) = ((4*pi) * (m / (2*pi*k*T))^(3/2)) * v(i)^2 * exp(-(m * (v(i)^2)) / (2*k*T)) $$
+% $$ P(v) = 4*pi * (m / (2*pi*k*T))^(3/2)) * v(i)^2 / exp(m * (v(i)^2)) / (2*k*T) $$
 %
 function [velo, dist] = distribution_curve( T, m)
     k = 1.38064852e-23;
@@ -66,9 +66,9 @@ end
 function [v_max, v_rms, v_ave] = velocities(T, m)
     k = 1.38064852e-23;
     fact = sqrt(k*T / m);
-    v_rms = sqrt(3) * fact;
-    v_ave = sqrt(8 / pi) * fact;
-    v_max = sqrt(2) * fact;
+    v_r_m_s = sqrt(3) * fact;
+    v_a_v_e = sqrt(8 / pi) * fact;
+    v_m_a_x = sqrt(2) * fact;
 end
 
 %% Note on Maxwell-Boltzmann Distrobution:
