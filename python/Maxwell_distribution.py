@@ -23,6 +23,7 @@ def extract_data(file_name):
         gasses[gas] = mass
     return gasses
 
+
 def root_mean(gas_mass):
     fact = np.sqrt(k * t / gas_mass)
     v_rms = np.sqrt(3) * fact
