@@ -76,3 +76,4 @@ end
 % the speeds of various particles within a stationary container at a specific temperature. 
 % The distribution is often represented with a graph, with the y-axis defined as the probability
 % a molecule is moving at the velocity coresponding to the x-axis.
+
