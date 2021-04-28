@@ -40,7 +40,7 @@ hold off
 % The following equation is used to calculate probabilities over 
 % the range of velocitiy. 
 %
-% $$ P(v) = 4*pi * (m / (2*pi*k*T))^(3/2)) * v(i)^2 / exp(m * (v(i)^2)) / (2*k*T) $$
+% $$ P(v) = 4*pi * (m / (2*pi*k*T))^(3/2)) * v^2 / exp(m * (v^2)) / (2*k*T) $$
 %
 function [velo, dist] = distribution_curve( T, m)
     k = 1.38064852e-23;
