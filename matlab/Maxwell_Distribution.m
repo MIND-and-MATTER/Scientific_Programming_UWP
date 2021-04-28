@@ -59,9 +59,9 @@ end
 % The following equations are used to calculate root mean square, average, 
 % and most probable velocities.
 %
-% $$ v_r_m_s = sqrt(3) * sqrt(k*T / m) $$
-% $$ v_a_v_e = sqrt(8 / pi) * sqrt(k*T / m) $$
-% $$ v_m_a_x = sqrt(2) * sqrt(k*T / m) $$
+% $$ v_(rms) = sqrt(3) * sqrt(k*T / m) $$
+% $$ v_(ave) = sqrt(8 / pi) * sqrt(k*T / m) $$
+% $$ v_(max) = sqrt(2) * sqrt(k*T / m) $$
 
 function [v_max, v_rms, v_ave] = velocities(T, m)
     k = 1.38064852e-23;
