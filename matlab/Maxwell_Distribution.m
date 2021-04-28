@@ -71,7 +71,7 @@ function [v_max, v_rms, v_ave] = velocities(T, m)
     v_max = sqrt(2) * fact;
 end
 
-%% Note on M-B Distrobution:
+%% Note on Maxwell-Boltzmann Distrobution:
 % A Maxwell-Boltzmann Distribution is a probability distribution used for describing
 % the speeds of various particles within a stationary container at a specific temperature. 
 % The distribution is often represented with a graph, with the y-axis defined as the probability
