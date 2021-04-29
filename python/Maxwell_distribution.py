@@ -37,7 +37,7 @@ def distribution_value(mass, velocity):
 
 
 def distribution_curve(gasses):
-    values = list(range(0, 800, 3))
+    values = list(range(0, 1000, 3))
     a = []
     y_max_abs = 0
 
