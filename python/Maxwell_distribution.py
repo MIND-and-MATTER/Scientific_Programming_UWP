@@ -38,64 +38,28 @@ def distribution_value(mass, velocity):
 
 def distribution_curve(gasses):
     values = list(range(0, 800, 3))
-    print(values)
     a = []
-    ymax_abs = 0
+    y_max_abs = 0
 
     for key in gasses.keys():
         m = float(gasses[key]) * 6.0221409e-26
         v_rms = root_mean(m)
-        print(v_rms)
-        print(distribution_value(m, v_rms))
+
         for v in values:
             a.append(distribution_value(m, v))
 
-        plt.plot(values, a)
-        ymin, ymax = plt.ylim()
-        ymax_abs = max(ymax, ymax_abs)
-        #plt.ylim(bottom=0, top=1.1*np.amax(a))
-        #plt.axvline(v_rms, ymin=0, ymax=distrobution_value(m, v_rms)/ymax_abs)
+        plt.plot(values, a, label=key+":"+" "+"v_rms = "+str(round(v_rms, 1)))
+        y_min, y_max = plt.ylim()
+        y_max_abs = max(y_max, y_max_abs)
 
-        plt.plot([v_rms, v_rms], [0, distribution_value(m, v_rms)])
-        print(a)
+        plt.plot([v_rms, v_rms], [0, distribution_value(m, v_rms)], 'r--', linewidth=.4)
         a = []
 
+    plt.xlabel("Velocity (m/s)")
+    plt.ylabel("Probability")
+    plt.title("Maxwell-Boltzmann Distribution")
+    plt.legend()
     plt.show()
 
 
 distribution_curve(extract_data("Gas_mass.csv"))
-
-
-# distribution_curve(extract_data("Gas_mass.csv"))
-# function [v_max, v_rms, v_ave] = velocities(T, m)
-#     k = 1.38064852e-23;
-#     fact = sqrt(k*T / m);
-#     v_max = sqrt(2) * fact;
-#     v_rms = sqrt(3) * fact;
-#     v_ave = sqrt(8 / pi) * fact;
-# end
-
-#print(extract_data("Gas_mass.csv"))
-
-# 4. if __name__ == "__main__" block, which calls a primary function with a clear name 
-
-# All code is inside function definitions for simulation solution & visualization (functional programming)
-#	Each function contains a docstring compliant with PEP 257: https://www.python.org/dev/peps/pep-0257/
-#	Module ends with if __name__ == "__main__" block to execute central function of the code
-
-# Primary simulation function structure
-#	1. Module imports
-#		Use SciPy constants for physical constants in particular function (not globally)
-#			https://docs.scipy.org/doc/scipy/reference/constants.html
-#		Follow best practice order: 
-#			https://docs.python.org/3/faq/programming.html#what-are-the-best-practices-for-using-import-in-a-module
-# 	2. Simulation parameters
-#		Each parameter named clearly and units marked in in-line comment
-#		Naming of all variables should comply with PEP 8: 
-#			https://www.python.org/dev/peps/pep-0008/#documentation-strings
-#			(lower_case_with_underscores)
-# 	3. Computed parameters (from simulation parameters)
-# 	4. Function calls (use PEP 8-compliant lower_case_with_underscores) and simple calculations for:
-#		data read-in
-#		simulation solution 
-#		visualization
