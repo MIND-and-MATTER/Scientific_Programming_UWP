@@ -31,13 +31,26 @@ def root_mean(gas_mass):
     return v_rms
 
 
+def set_x(gasses):
+    x_range = 0
+    for key in gasses.keys():
+        temp = root_mean(float(gasses[key])*6.0221409e-26)*2.5
+        if temp > x_range:
+            x_range = temp
+
+    return x_range
+
+
+print(set_x(extract_data("Gas_mass.csv")))
+
+
 def distribution_value(mass, velocity):
     fact = (4 * np.pi) * (mass / (2 * np.pi * k * t)) ** (3 / 2)
     return fact * velocity ** 2 / np.exp((mass * (velocity ** 2)) / (2 * k * t))
 
 
 def distribution_curve(gasses):
-    values = list(range(0, 1000, 3))
+    values = np.linspace(0, round(set_x(gasses)), 10000)
     a = []
     y_max_abs = 0
 
@@ -55,6 +68,7 @@ def distribution_curve(gasses):
         plt.plot([v_rms, v_rms], [0, distribution_value(m, v_rms)], 'r--', linewidth=.4)
         a = []
 
+    plt.xlim(0, set_x(gasses))
     plt.xlabel("Velocity (m/s)")
     plt.ylabel("Probability")
     plt.title("Maxwell-Boltzmann Distribution")
@@ -62,4 +76,5 @@ def distribution_curve(gasses):
     plt.show()
 
 
-distribution_curve(extract_data("Gas_mass.csv"))
+if __name__ == "__main__":
+    distribution_curve(extract_data("Gas_mass.csv"))
