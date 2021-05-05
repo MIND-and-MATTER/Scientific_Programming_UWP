@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def quadratic_fit(array):
 
     x_values = array[0, :]
@@ -8,4 +9,3 @@ def quadratic_fit(array):
     quadratic_coefficients = np.polyfit(x_values, y_values, 3)
 
     return quadratic_coefficients
-

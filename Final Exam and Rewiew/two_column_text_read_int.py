@@ -1,8 +1,14 @@
 import numpy as np
 
+
 def two_column_text_read(file_name):
 
-    file = open(file_name)
+    try:
+        file = open(file_name)
+    except OSError as error:
+        print(error)
+        return
+
     content = file.readlines()
     data = np.zeros([2, (len(content))], float)
     n = 0
@@ -16,16 +22,16 @@ def two_column_text_read(file_name):
     return data
 
 
-def quadratic_fit(array):
-
-    x_values = array[0, :]
-    y_values = array[1, :]
-
-    quadratic_coefficients = np.polyfit(x_values, y_values, 3)
-
-    return quadratic_coefficients
-
-
-print(two_column_text_read("volumes_energies.dat"))
-print(quadratic_fit(two_column_text_read("volumes_energies.dat")))
+# def quadratic_fit(array):
+#
+#     x_values = array[0, :]
+#     y_values = array[1, :]
+#
+#     quadratic_coefficients = np.polyfit(x_values, y_values, 3)
+#
+#     return quadratic_coefficients
+#
+#
+# print(two_column_text_read("volumes_energies.dat"))
+# print(quadratic_fit(two_column_text_read("volumes_energies.dat")))
 
