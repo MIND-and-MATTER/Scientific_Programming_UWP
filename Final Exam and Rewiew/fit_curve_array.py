@@ -2,8 +2,9 @@
 This function takes an input of the coefficients of a quadratic function and returns columns of an array
  with x values in row one and y values in row two. These values correspond to a fit curve representing a function
  of x with the given polynomial coefficients.
-__Michael Luccas__
 """
+
+__author__ = "Michael Luccas & Cheo Reyes"
 
 import numpy as np
 
