@@ -1,3 +1,9 @@
+"""
+This function
+
+__Cheo Reyes__
+"""
+
 from scipy import stats
 import numpy as np
 
