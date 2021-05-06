@@ -1,3 +1,10 @@
+"""
+This function reads in two columns of data from a text file of arbitrary length. It returns the data as columns
+of an array with x values in row 1 and the corresponding y value in row 2. the length of the array is determined
+by the length of the input file.
+__Michael Luccas__
+"""
+
 import numpy as np
 
 
