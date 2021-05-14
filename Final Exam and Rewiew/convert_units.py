@@ -17,7 +17,7 @@ def convert_units(value, unit_from, unit_to):
     elif unit_from == "rydberg per cubic bohr" and unit_to == "gigapascals":
         numerator = value * rydberg_to_joule
         denominator = bohr_to_meter**3
-        converted_value_bulk_modulus = (value*numerator/denominator) * 10**-9
+        converted_value_bulk_modulus = (value*numerator/denominator) / 1000000000
         return converted_value_bulk_modulus
     else:
         raise ImportError("Your inputs cannot be converted")
