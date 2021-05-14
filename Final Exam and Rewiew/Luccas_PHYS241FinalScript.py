@@ -40,3 +40,5 @@ if display_graph is True:
     plt.show()
 else:
     plt.savefig("Luccas.Cu.Fm-3m.GGA-PBE.EquationOfState.png")
+
+visualize_vectors_in_space("square", 130, 200, display_graph)

@@ -5,10 +5,6 @@ def visualize_vectors_in_space(potential, dimensions, parameter, display):
     from generate_matrix import generate_matrix
     from lowest_eigenvector import lowest_eigenvector
 
-    # potential = 'square'
-    # dimensions = 130
-    # parameter = 200
-    legend = []
     x = np.linspace(-10, 10, dimensions)
     matrix = generate_matrix(-10., 10., dimensions, potential, parameter)
     eigenvalues, eigenvectors = lowest_eigenvector(matrix, 3)
@@ -27,12 +23,8 @@ def visualize_vectors_in_space(potential, dimensions, parameter, display):
                  xy=(68, 460),
                  xycoords='figure pixels'
                  )
-    plt.savefig("Luccas.square.Eigenvector1,2,3.png")
 
     if display is True:
         plt.show()
     else:
         plt.savefig("Luccas.square.Eigenvector1,2,3.png")
-
-
-visualize_vectors_in_space("square", 130, 200, False)
