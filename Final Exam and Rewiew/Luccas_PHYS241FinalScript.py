@@ -39,4 +39,4 @@ annotate_graph(parse_file_name("Cu.Fm-3m.GGA-PBE.volumes_energies.dat"), bulk_mo
 if display_graph is True:
     plt.show()
 else:
-    plt.savefig()
+    plt.savefig("fit_an_equation_of_state.PNG")
