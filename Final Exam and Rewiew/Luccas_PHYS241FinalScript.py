@@ -13,7 +13,7 @@ from convert_units import convert_units
 from parse_file_name import parse_file_name
 from annotate_graph import annotate_graph
 
-display_graph = True
+display_graph = False
 data = two_column_text_read("Cu.Fm-3m.GGA-PBE.volumes_energies.dat")
 quadratic = quadratic_fit(data)
 statistics = bivariate_statistics(data)
