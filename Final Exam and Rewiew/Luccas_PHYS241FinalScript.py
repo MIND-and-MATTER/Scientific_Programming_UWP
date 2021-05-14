@@ -36,7 +36,7 @@ plt.ylabel(r"$\mathcal{V}$"+" "+"(eV/atom)")
 plt.xlabel(r"$\mathcal{E}$"+" "+r"($\AA^{3}$/atom)")
 annotate_graph(parse_file_name("Cu.Fm-3m.GGA-PBE.volumes_energies.dat"), bulk_modulus)
 
-if display_graph == True:
+if display_graph is True:
     plt.show()
 else:
     plt.savefig()
