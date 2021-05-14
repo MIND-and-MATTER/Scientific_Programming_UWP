@@ -7,13 +7,13 @@ from two_column_text_read import two_column_text_read
 from bivariate_statistics import bivariate_statistics
 from quadratic_fit import quadratic_fit
 from fit_curve_array import fit_curve_array
-from plot_data_with_fit import plot_data_with_fit
 from equations_of_state import fit_eos
 from convert_units import convert_units
 from parse_file_name import parse_file_name
 from annotate_graph import annotate_graph
+from visualize_vectors_in_space import visualize_vectors_in_space
 
-display_graph = False
+display_graph = True
 data = two_column_text_read("Cu.Fm-3m.GGA-PBE.volumes_energies.dat")
 quadratic = quadratic_fit(data)
 statistics = bivariate_statistics(data)
@@ -39,4 +39,4 @@ annotate_graph(parse_file_name("Cu.Fm-3m.GGA-PBE.volumes_energies.dat"), bulk_mo
 if display_graph is True:
     plt.show()
 else:
-    plt.savefig("fit_an_equation_of_state.PNG")
+    plt.savefig("Luccas.Cu.Fm-3m.GGA-PBE.EquationOfState.png")
