@@ -24,8 +24,6 @@ bulk_modulus = convert_units(fit_parameters[1], "rydberg per cubic bohr", "gigap
 fit_x_values = data[0, :]
 fit_data = fit_curve_array(quadratic, fit_x_values[0], fit_x_values[-1])
 
-print(fit_data)
-
 plt.plot(
     convert_units(fit_data[0, :], "cubic bohr", "cubic angstrom"),
     convert_units(fit_data[1, :], "rydberg", "ev"),
